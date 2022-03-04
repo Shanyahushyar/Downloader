@@ -41,8 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           // icon: Icon(Lottie.asset('assets/lottieJSON/logo.json'),
-          // icon: Icon(Lottie.asset('assets/lottieJSON/logo.json'),
-
+          title: Lottie.asset('assets/lottieJSON/logo.json',
+              height: 60, width: 60),
+          centerTitle: true,
           leading: IconButton(
             onPressed: _handleMenuButtonPressed,
             icon: ValueListenableBuilder<AdvancedDrawerValue>(
@@ -59,7 +60,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: BrowserCardS(),
+        body: Center(
+          child: Lottie.asset('assets/lottieJSON/start.json'),
+        ),
       ),
       drawer: SafeArea(
         child: ListTileTheme(
@@ -80,12 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.black26,
                   //shape: BoxShape.circle,
                 ),
-                child: Icon(Icons.speaker),
+                child: Lottie.asset('assets/lottieJSON/logo.json'),
                 // child: Lottie.asset('assets/lottieJSON/logo.json'),
-                
               ),
-
-              
               ListTile(
                 onTap: () {
                   Navigator.pushNamed(context, '/downloadhere');
