@@ -1,10 +1,13 @@
-import 'package:downloader/scr/menu/Paste-link-page.dart';
+import 'package:downloader/src/home_screen.dart/browser.dart';
+import 'package:downloader/src/menu/Paste-link-page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:lottie/lottie.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:downloader/scr/menu/Paste-link-page.dart';
+import 'package:downloader/src/menu/Paste-link-page.dart';
 import 'package:getwidget/getwidget.dart';
+
+import 'browser_card.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -38,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           // icon: Icon(Lottie.asset('assets/lottieJSON/logo.json'),
-          //          icon: Icon(Lottie.asset('assets/lottieJSON/logo.json'),
+          // icon: Icon(Lottie.asset('assets/lottieJSON/logo.json'),
 
           leading: IconButton(
             onPressed: _handleMenuButtonPressed,
@@ -56,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Container(alignment: Alignment.center, child: Text('hi')),
+        body: BrowserCardS(),
       ),
       drawer: SafeArea(
         child: ListTileTheme(
@@ -78,8 +81,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   //shape: BoxShape.circle,
                 ),
                 child: Icon(Icons.speaker),
-                //child: Lottie.asset('assets/lottieJSON/logo.json'),
+                // child: Lottie.asset('assets/lottieJSON/logo.json'),
+                
               ),
+
+              
               ListTile(
                 onTap: () {
                   Navigator.pushNamed(context, '/downloadhere');

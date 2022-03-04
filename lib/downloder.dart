@@ -1,12 +1,14 @@
 
+// ignore_for_file: camel_case_types
+
 import 'package:flutter_youtube_downloader/flutter_youtube_downloader.dart';
-import 'package:flutter/material.dart';
 
 
-class Download {
-  Future<void> downloadVideo(String youTube_link, String title) async {
+
+class Download_Vedio {
+  Future<void> downloadVideo(String youTubeLink, String title) async {
     final result = await FlutterYoutubeDownloader.downloadVideo(
-        youTube_link, "$title", 18);
+        youTubeLink, "$title", 18);
     print(result);
   }
 }

@@ -1,10 +1,12 @@
+import 'package:downloader/downloder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 // import 'package:video_player/video_player.dart';
-// import 'package:youtube_downloader/downloader.dart';
-// import 'package:youtube_downloader/getSharedData.dart';
+//import 'package:youtube_downloader/downloader.dart';
+//import 'package:youtube_downloader/getSharedData.dart';
+//import 'package:downloader/downloder';
 
-import 'package:flutter_youtube_downloader/flutter_youtube_downloader.dart';
+//import 'package:flutter_youtube_downloader/flutter_youtube_downloader.dart';
 
 // ignore: must_be_immutable
 class PasteLinkPage extends StatefulWidget {
@@ -32,6 +34,9 @@ class _PasteLinkPageState extends State<PasteLinkPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('download by link'),
+      ),
       body: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
@@ -39,20 +44,22 @@ class _PasteLinkPageState extends State<PasteLinkPage> {
             ///Text Form field for pasting the link
             TextFormField(
               controller: _textController,
-              decoration:
-                  InputDecoration(labelText: "Paste Youtube Video Link..."),
+              decoration: const InputDecoration(
+                  labelText: "Paste Youtube Video Link..."),
             ),
 
             ///Download Button for extrating and downloading the link
             GestureDetector(
               onTap: () {
                 if (_textController.text.isEmpty) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(SnackBar(content: Text("No link pasted")));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("No link pasted")));
                 } else {
-                  ///Download the video
-                    Down
+                  //Download the video
+                  Download_Vedio().downloadVideo(
+                      _textController.text.trim(), " Youtube Downloader");
                 }
+                // _textController.clear();
               },
               child: Container(
                 alignment: Alignment.center,

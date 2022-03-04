@@ -1,7 +1,8 @@
-import 'package:downloader/scr/menu/Paste-link-page.dart';
-import 'package:downloader/scr/home_screen.dart/home_drawer_screen.dart';
-import 'package:downloader/scr/menu/downloading.dart';
-import 'package:downloader/scr/menu/favorite.dart';
+import 'package:downloader/src/menu/Paste-link-page.dart';
+import 'package:downloader/src/home_screen.dart/home_drawer_screen.dart';
+import 'package:downloader/src/menu/Paste-link-page.dart';
+import 'package:downloader/src/menu/downloading.dart';
+import 'package:downloader/src/menu/favorite.dart';
 import 'package:flutter/material.dart';
 
 class AppView extends StatelessWidget {
