@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'browser.dart';
+import 'Youtube.dart';
 
 class BrowserCardS extends StatefulWidget {
   const BrowserCardS({Key? key}) : super(key: key);
@@ -28,30 +27,25 @@ class _BrowserCardSState extends State<BrowserCardS> {
                 mainAxisSpacing: 15.0,
                 childAspectRatio: 0.8,
                 children: <Widget>[
-                  _buildCard('subtitle', 'Title', 'assets/cookiemint.jpg',
-                      false, false, context),
-                  _buildCard('subtitle', '\Title', 'assets/cookiemint.jpg',
-                      false, false, context),
-                  _buildCard('subtitle', '\Title', 'assets/cookiemint.jpg',
-                      false, true, context),
-                  _buildCard('subtitle', '\Title', 'assets/cookiemint.jpg',
-                      false, false, context)
+                  _buildCard('YouTube', 'assets/youtube.png', context),
+                  _buildCard('Instagram', 'assets/instagram.png', context),
+                  _buildCard('TikTok', 'assets/tiktok.png', context),
+                  _buildCard('Snapchat', 'assets/snap.png', context),
                 ],
               )),
-          SizedBox(height: 15.0)
+          const SizedBox(height: 10.0)
         ],
       ),
     );
   }
 
-  Widget _buildCard(String name, String price, String imgPath, bool added,
-      bool isFavorite, context) {
+  Widget _buildCard(String name, String imgPath, context) {
     return Padding(
         padding: EdgeInsets.only(top: 5.0, bottom: 5.0, left: 5.0, right: 5.0),
         child: InkWell(
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => BrowserScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => BrowserPage()));
             },
             child: Container(
                 decoration: BoxDecoration(
@@ -62,51 +56,33 @@ class _BrowserCardSState extends State<BrowserCardS> {
                           spreadRadius: 3.0,
                           blurRadius: 5.0)
                     ],
-                    color: Colors.white),
+                    color: Color.fromARGB(255, 255, 255, 255)),
                 child: Column(children: [
                   Padding(
-                      padding: EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                       )),
                   Hero(
                       tag: imgPath,
                       child: Container(
-                          height: 75.0,
+                          height: 150.0,
                           width: 75.0,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                                   image: AssetImage(imgPath),
                                   fit: BoxFit.contain)))),
-                  SizedBox(height: 7.0),
-                  Text(price,
-                      style: TextStyle(
-                          color: Color(0xFFCC8053),
-                          fontFamily: 'Varela',
-                          fontSize: 14.0)),
+                  Padding(
+                      padding: const EdgeInsets.all(1.0),
+                      child: Container(
+                        color: const Color(0xFFEBEBEB),
+                        height: 1.0,
+                      )),
                   Text(name,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Color(0xFF575E67),
                           fontFamily: 'Varela',
                           fontSize: 14.0)),
-                  Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Container(color: Color(0xFFEBEBEB), height: 1.0)),
-                  Padding(
-                      padding: EdgeInsets.only(left: 5.0, right: 5.0),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            if (!added) ...[
-                              Icon(Icons.date_range,
-                                  color: Color(0xFFD17E50), size: 12.0),
-                              Text('date :DD/mm/yyyy',
-                                  style: TextStyle(
-                                      fontFamily: 'Varela',
-                                      color: Color(0xFFD17E50),
-                                      fontSize: 12.0))
-                            ],
-                          ]))
                 ]))));
   }
 }
